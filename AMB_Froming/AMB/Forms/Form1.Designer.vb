@@ -44,6 +44,9 @@ Partial Class Form1
         Me.Tbl_Pro_Article_DTableAdapter = New AMB_Froming.DSAMBTableAdapters.tbl_Pro_Article_DTableAdapter()
         Me.ArtSizeComboBox = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.txtCardNo = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
@@ -121,6 +124,10 @@ Partial Class Form1
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.EmpPicPictureBox = New System.Windows.Forms.PictureBox()
+        Me.View_Pro_Article_BarCodeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSproduction = New AMB_Froming.DSproduction()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -201,6 +208,8 @@ Partial Class Form1
         Me.Button32 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
         Me.Label37 = New System.Windows.Forms.Label()
+        Me.View_Pro_Article_BarCodeTableAdapter = New AMB_Froming.DSproductionTableAdapters.View_Pro_Article_BarCodeTableAdapter()
+        Me.TableAdapterManager1 = New AMB_Froming.DSproductionTableAdapters.TableAdapterManager()
         ArtCodeLabel = New System.Windows.Forms.Label()
         ArtSizeLabel = New System.Windows.Forms.Label()
         Label34 = New System.Windows.Forms.Label()
@@ -214,11 +223,16 @@ Partial Class Form1
         CType(Me.Tbl_Pro_ArticleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_Pro_Article_DBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         CType(Me.View_AMb_Article_Wise_SumBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Tbl_PC_AMB_LineBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.printingBox.SuspendLayout()
         CType(Me.View_AMb_FormingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        Me.Panel10.SuspendLayout()
+        CType(Me.EmpPicPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.View_Pro_Article_BarCodeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSproduction, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.View_Repair_QtyBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.View_Daily_SumBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -414,6 +428,7 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Panel9)
         Me.Panel1.Controls.Add(Me.Label33)
         Me.Panel1.Controls.Add(Me.Label36)
         Me.Panel1.Controls.Add(Me.Label30)
@@ -471,8 +486,44 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Location = New System.Drawing.Point(6, 118)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1095, 662)
+        Me.Panel1.Size = New System.Drawing.Size(1091, 864)
         Me.Panel1.TabIndex = 88
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel9.Controls.Add(Me.Label84)
+        Me.Panel9.Controls.Add(Me.txtCardNo)
+        Me.Panel9.Location = New System.Drawing.Point(23, 86)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(338, 73)
+        Me.Panel9.TabIndex = 55594
+        '
+        'Label84
+        '
+        Me.Label84.BackColor = System.Drawing.Color.DarkCyan
+        Me.Label84.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label84.Location = New System.Drawing.Point(0, 0)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(336, 20)
+        Me.Label84.TabIndex = 2
+        Me.Label84.Text = "Barcode Terminal"
+        Me.Label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCardNo
+        '
+        Me.txtCardNo.BackColor = System.Drawing.SystemColors.Control
+        Me.txtCardNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtCardNo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCardNo.Location = New System.Drawing.Point(10, 37)
+        Me.txtCardNo.Name = "txtCardNo"
+        Me.txtCardNo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtCardNo.Size = New System.Drawing.Size(300, 23)
+        Me.txtCardNo.TabIndex = 0
+        Me.txtCardNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label33
         '
@@ -849,7 +900,7 @@ Partial Class Form1
         Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(19, 168)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(1057, 23)
+        Me.Label7.Size = New System.Drawing.Size(416, 23)
         Me.Label7.TabIndex = 89
         Me.Label7.Text = "Label7"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -871,12 +922,13 @@ Partial Class Form1
         '
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold)
-        Me.Button1.Location = New System.Drawing.Point(19, 67)
+        Me.Button1.Location = New System.Drawing.Point(815, 52)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(1057, 99)
+        Me.Button1.Size = New System.Drawing.Size(243, 99)
         Me.Button1.TabIndex = 88
         Me.Button1.Text = "PASS"
         Me.Button1.UseVisualStyleBackColor = False
+        Me.Button1.Visible = False
         '
         'Label9
         '
@@ -1409,6 +1461,7 @@ Partial Class Form1
         '
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Panel10)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Label6)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -1418,8 +1471,40 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Label34)
         Me.Panel2.Location = New System.Drawing.Point(1106, 169)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(376, 149)
+        Me.Panel2.Size = New System.Drawing.Size(501, 149)
         Me.Panel2.TabIndex = 55562
+        '
+        'Panel10
+        '
+        Me.Panel10.BackColor = System.Drawing.SystemColors.Highlight
+        Me.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel10.Controls.Add(Me.EmpPicPictureBox)
+        Me.Panel10.Location = New System.Drawing.Point(380, 35)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(111, 109)
+        Me.Panel10.TabIndex = 55567
+        '
+        'EmpPicPictureBox
+        '
+        Me.EmpPicPictureBox.BackColor = System.Drawing.SystemColors.InactiveBorder
+        Me.EmpPicPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.EmpPicPictureBox.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.View_Pro_Article_BarCodeBindingSource, "ArtImage", True))
+        Me.EmpPicPictureBox.Location = New System.Drawing.Point(2, 3)
+        Me.EmpPicPictureBox.Name = "EmpPicPictureBox"
+        Me.EmpPicPictureBox.Size = New System.Drawing.Size(106, 101)
+        Me.EmpPicPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.EmpPicPictureBox.TabIndex = 46
+        Me.EmpPicPictureBox.TabStop = False
+        '
+        'View_Pro_Article_BarCodeBindingSource
+        '
+        Me.View_Pro_Article_BarCodeBindingSource.DataMember = "View_Pro_Article_BarCode"
+        Me.View_Pro_Article_BarCodeBindingSource.DataSource = Me.DSproduction
+        '
+        'DSproduction
+        '
+        Me.DSproduction.DataSetName = "DSproduction"
+        Me.DSproduction.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label4
         '
@@ -1455,7 +1540,7 @@ Partial Class Form1
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(374, 34)
+        Me.Label1.Size = New System.Drawing.Size(499, 34)
         Me.Label1.TabIndex = 55562
         Me.Label1.Text = "Article Details"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1497,7 +1582,7 @@ Partial Class Form1
         Me.ModelID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_Pro_ArticleBindingSource, "ModelID", True))
         Me.ModelID.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ModelID.ForeColor = System.Drawing.Color.White
-        Me.ModelID.Location = New System.Drawing.Point(1488, 193)
+        Me.ModelID.Location = New System.Drawing.Point(1681, 245)
         Me.ModelID.Name = "ModelID"
         Me.ModelID.Size = New System.Drawing.Size(93, 20)
         Me.ModelID.TabIndex = 55567
@@ -1713,7 +1798,7 @@ Partial Class Form1
         Me.Label50.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_Pro_ArticleBindingSource, "SAMForming", True))
         Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label50.ForeColor = System.Drawing.Color.White
-        Me.Label50.Location = New System.Drawing.Point(1514, 252)
+        Me.Label50.Location = New System.Drawing.Point(1513, 453)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(93, 20)
         Me.Label50.TabIndex = 55573
@@ -1815,7 +1900,7 @@ Partial Class Form1
         Me.Label87.AutoSize = True
         Me.Label87.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Tbl_Inv_Tran_DateBindingSource, "DateName", True))
         Me.Label87.ForeColor = System.Drawing.Color.White
-        Me.Label87.Location = New System.Drawing.Point(1613, 252)
+        Me.Label87.Location = New System.Drawing.Point(1634, 440)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(45, 13)
         Me.Label87.TabIndex = 55599
@@ -1834,7 +1919,7 @@ Partial Class Form1
         Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.ForeColor = System.Drawing.Color.White
-        Me.Button8.Location = New System.Drawing.Point(1508, 203)
+        Me.Button8.Location = New System.Drawing.Point(1490, 321)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(241, 72)
         Me.Button8.TabIndex = 55600
@@ -2199,12 +2284,23 @@ Partial Class Form1
         Me.Label37.TabIndex = 55604
         Me.Label37.Text = "Label37"
         '
+        'View_Pro_Article_BarCodeTableAdapter
+        '
+        Me.View_Pro_Article_BarCodeTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.tbl_Pro_Article_BarCode_TransactionsTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = AMB_Froming.DSproductionTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1819, 926)
+        Me.ClientSize = New System.Drawing.Size(1819, 1012)
         Me.Controls.Add(Label69)
         Me.Controls.Add(Me.Button39)
         Me.Controls.Add(Me.Label37)
@@ -2251,11 +2347,17 @@ Partial Class Form1
         CType(Me.Tbl_Pro_Article_DBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         CType(Me.View_AMb_Article_Wise_SumBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Tbl_PC_AMB_LineBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.printingBox.ResumeLayout(False)
         CType(Me.View_AMb_FormingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        Me.Panel10.ResumeLayout(False)
+        CType(Me.EmpPicPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.View_Pro_Article_BarCodeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSproduction, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.View_Repair_QtyBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.View_Daily_SumBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
@@ -2446,4 +2548,13 @@ Partial Class Form1
     Friend WithEvents Button37 As Button
     Friend WithEvents Button36 As Button
     Friend WithEvents Label37 As Label
+    Friend WithEvents DSproduction As DSproduction
+    Friend WithEvents View_Pro_Article_BarCodeBindingSource As BindingSource
+    Friend WithEvents View_Pro_Article_BarCodeTableAdapter As DSproductionTableAdapters.View_Pro_Article_BarCodeTableAdapter
+    Friend WithEvents TableAdapterManager1 As DSproductionTableAdapters.TableAdapterManager
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Label84 As Label
+    Friend WithEvents txtCardNo As TextBox
+    Friend WithEvents Panel10 As Panel
+    Friend WithEvents EmpPicPictureBox As PictureBox
 End Class

@@ -1098,6 +1098,82 @@ Public Class Form1
     Private Sub RadioButton9_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton9.CheckedChanged
         getLineValue()
     End Sub
+
+    Private Sub txtCardNo_TextChanged(sender As Object, e As EventArgs) Handles txtCardNo.TextChanged
+        Dim barCodeNo As String
+
+        barCodeNo = txtCardNo.Text
+        If barCodeNo.Length > 0 Then
+            'If barCodeNo.Length = 13 Then
+
+
+            Try
+
+
+
+
+                Me.View_Pro_Article_BarCodeTableAdapter.Fill(Me.DSproduction.View_Pro_Article_BarCode, barCodeNo)
+                Entry(barCodeNo)
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                'txtCardNo.Text = ""
+            End Try
+        End If
+
+        'End If
+    End Sub
+    Private Sub Entry(ByVal Card As String)
+
+        Dim EmpCardVerify As Integer
+
+
+        EmpCardVerify = VerifyEmp(Card)
+
+        If EmpCardVerify = 1 Then
+            Attendence()
+            'Attendence(Label4.Text, Label5.Text, Label9.Text, Label11.Text, Label8.Text, Now.Date)
+
+        End If
+
+
+        Try
+            'TInterval = 600
+            'ClearTimer.Enabled = True
+        Catch ex As Exception
+            'lblMsg.Text = ex.Message
+        End Try
+
+    End Sub
+    Private Function VerifyEmp(ByVal CardForVerify As String) As Integer
+        Dim EmpVerification As Integer
+        Try
+            EmpVerification = View_Pro_Article_BarCodeTableAdapter.Fill(Me.DSproduction.View_Pro_Article_BarCode, Val(CardForVerify))
+            'EmpVerification = Me.View_All_EmployeesTableAdapter.FillBy1(Me.DSPayRoll.View_All_Employees, Val(CardForVerify))
+        Catch ex As Exception
+            'EmpVerification = Me.View_All_EmployeesTableAdapter.FillBy1(Me.DSPayRoll.View_All_Employees, Val(CardForVerify))
+            EmpVerification = View_Pro_Article_BarCodeTableAdapter.Fill(Me.DSproduction.View_Pro_Article_BarCode, Val(CardForVerify))
+        End Try
+
+
+        Return EmpVerification
+    End Function
+    Private Sub Attendence()
+
+
+        Try
+            Insertion(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, True, 0, 0, 0, 1, Nothing, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            reset()
+            Button1.BackColor = Color.Green
+            Entryflag = True
+            txtCardNo.Text = ""
+            'loadData()
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
     'Private Sub ClcikBtn(Button)
     '    Button.BackColor = Color.Red
     'End Sub

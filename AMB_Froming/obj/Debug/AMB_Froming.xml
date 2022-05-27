@@ -507,5 +507,110 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<member name="T:AMB_Froming.DSproduction">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.View_Pro_Article_BarCodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.tbl_Pro_Article_BarCode_TransactionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.view_Production_PackingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.View_Pro_Article_BarCodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.tbl_Pro_Article_BarCode_TransactionsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.view_Production_PackingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.View_Pro_Article_BarCodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.tbl_Pro_Article_BarCode_TransactionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproduction.view_Production_PackingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproductionTableAdapters.View_Pro_Article_BarCodeTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproductionTableAdapters.tbl_Pro_Article_BarCode_TransactionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproductionTableAdapters.view_Production_PackingTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproductionTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.UpdateUpdatedRows(AMB_Froming.DSproduction,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.UpdateInsertedRows(AMB_Froming.DSproduction,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.UpdateDeletedRows(AMB_Froming.DSproduction,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.UpdateAll(AMB_Froming.DSproduction)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AMB_Froming.DSproductionTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 </members>
 </doc>
